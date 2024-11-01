@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "423577245801",
+    "project_id": "aljabar-project",
+    "storage_bucket": "aljabar-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423577245801:android:446e5ade37ee92a92baaf8",
+        "android_client_info": {
+          "package_name": "com.aljabar.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyWhTHmqVbo-S5k53gVwmBEehySV2NPZs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
