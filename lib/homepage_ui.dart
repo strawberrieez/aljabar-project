@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:aljabar_project/ctrl.dart'; // Import untuk fungsi backend
+import 'package:aljabar_project/ctrl.dart';
 import 'package:aljabar_project/detailpage.dart'; // Import untuk detail page
 
 class HomePageUi extends StatefulWidget {
@@ -297,8 +297,7 @@ class _HomePageUiState extends State<HomePageUi> {
                           final namaMenu = doc.data()['namaMenu'];
                           final deskripsi = doc.data()['deskripsi'];
                           final waktu = doc.data()['waktu'] ?? '20 menit';
-                          final tingkatKesulitan =
-                              doc.data()['tingkatKesulitan'] ?? 'Mudah';
+                          final tingkatKesulitan = doc.data()['tingkatKesulitan'] ?? 'Mudah';
                           final imageUrl = doc.data()['imageUrl'];
 
                           return Card(
@@ -316,8 +315,7 @@ class _HomePageUiState extends State<HomePageUi> {
                                 Padding(
                                   padding: const EdgeInsets.all(12.0),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         namaMenu,
@@ -329,29 +327,22 @@ class _HomePageUiState extends State<HomePageUi> {
                                       const SizedBox(height: 8),
                                       Text(
                                         deskripsi,
-                                        style: const TextStyle(
-                                            fontSize: 16,
-                                            color: Colors.black54),
+                                        style: const TextStyle(fontSize: 16, color: Colors.black54),
                                       ),
                                       const SizedBox(height: 8),
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         children: [
                                           Row(
                                             children: [
-                                              const Icon(Icons.access_time,
-                                                  color: Colors.orange,
-                                                  size: 20),
+                                              const Icon(Icons.access_time, color: Colors.orange, size: 20),
                                               const SizedBox(width: 5),
                                               Text(waktu),
                                             ],
                                           ),
                                           Row(
                                             children: [
-                                              const Icon(Icons.bar_chart,
-                                                  color: Colors.orange,
-                                                  size: 20),
+                                              const Icon(Icons.bar_chart, color: Colors.orange, size: 20),
                                               const SizedBox(width: 5),
                                               Text(tingkatKesulitan),
                                             ],
@@ -361,7 +352,7 @@ class _HomePageUiState extends State<HomePageUi> {
                                     ],
                                   ),
                                 ),
-                                ButtonBar(
+                                OverflowBar(
                                   alignment: MainAxisAlignment.end,
                                   children: [
                                     TextButton(
@@ -369,8 +360,7 @@ class _HomePageUiState extends State<HomePageUi> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) =>
-                                                DescPage(namaMenu: id),
+                                            builder: (context) => DescPage(namaMenu: id),
                                           ),
                                         );
                                       },

@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "423577245801",
-    "project_id": "aljabar-project",
-    "storage_bucket": "aljabar-project.firebasestorage.app"
+    "project_number": "989385588136",
+    "project_id": "fir-sekar",
+    "storage_bucket": "fir-sekar.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:423577245801:android:446e5ade37ee92a92baaf8",
+        "mobilesdk_app_id": "1:989385588136:android:f12c720abc288a2559b19d",
         "android_client_info": {
           "package_name": "com.aljabar.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "989385588136-5beeri7scmv66aqso1mfbhpcjtkvuplh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAyWhTHmqVbo-S5k53gVwmBEehySV2NPZs"
+          "current_key": "AIzaSyBPZ8Pobwpi65buiu5ZDrnOfvIfBxA6UHE"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989385588136-5beeri7scmv66aqso1mfbhpcjtkvuplh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

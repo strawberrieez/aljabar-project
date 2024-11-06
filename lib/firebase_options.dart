@@ -50,20 +50,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCF-4frsCiuaNjaD-73-YnqEoggESYRt5c',
-    appId: '1:423577245801:web:282818591a6640362baaf8',
-    messagingSenderId: '423577245801',
-    projectId: 'aljabar-project',
-    authDomain: 'aljabar-project.firebaseapp.com',
-    storageBucket: 'aljabar-project.firebasestorage.app',
-    measurementId: 'G-H3LWQDVML5',
+    apiKey: 'AIzaSyDI08OmsV7fHNoKqpvqRB0fmRoLnJ_V8y8',
+    appId: '1:989385588136:web:9fd77d46b4251c1359b19d',
+    messagingSenderId: '989385588136',
+    projectId: 'fir-sekar',
+    authDomain: 'fir-sekar.firebaseapp.com',
+    storageBucket: 'fir-sekar.appspot.com',
+    measurementId: 'G-355T5R537Q',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAyWhTHmqVbo-S5k53gVwmBEehySV2NPZs',
-    appId: '1:423577245801:android:446e5ade37ee92a92baaf8',
-    messagingSenderId: '423577245801',
-    projectId: 'aljabar-project',
-    storageBucket: 'aljabar-project.firebasestorage.app',
+    apiKey: 'AIzaSyBPZ8Pobwpi65buiu5ZDrnOfvIfBxA6UHE',
+    appId: '1:989385588136:android:f12c720abc288a2559b19d',
+    messagingSenderId: '989385588136',
+    projectId: 'fir-sekar',
+    storageBucket: 'fir-sekar.appspot.com',
   );
+
 }
