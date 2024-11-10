@@ -13,27 +13,27 @@ class DescPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Title'),
       ),
-      body: FutureBuilder(
-        future: getDoc(namaMenu),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Column(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.favorite),
-                ),
-                Text(snapshot.data!.data()!['namaMenu'].toString()),
-                Text(snapshot.data!.data()!['bahan'].toString()),
-                Text(snapshot.data!.data()!['langkahMemasak'].toString()),
-                Text(snapshot.data!.data()!['tipsMemasak'].toString()),
-                Text(snapshot.data!.data()!['nilaiGizi'].toString()),
-              ],
-            );
-          }
-          return const Center(child: CircularProgressIndicator());
-        },
-      ),
+      // body: FutureBuilder(
+      //   future: getDoc(namaMenu),
+      //   builder: (context, snapshot) {
+      //     if (snapshot.hasData) {
+      //       return Column(
+      //         children: [
+      //           IconButton(
+      //             onPressed: () {},
+      //             icon: const Icon(Icons.favorite),
+      //           ),
+      //           Text(snapshot.data!.data()!['namaMenu'].toString()),
+      //           Text(snapshot.data!.data()!['bahan'].toString()),
+      //           Text(snapshot.data!.data()!['langkahMemasak'].toString()),
+      //           Text(snapshot.data!.data()!['tipsMemasak'].toString()),
+      //           Text(snapshot.data!.data()!['nilaiGizi'].toString()),
+      //         ],
+      //       );
+      //     }
+      //     return const Center(child: CircularProgressIndicator());
+      //   },
+      // ),
     );
   }
 }
