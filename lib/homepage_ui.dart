@@ -11,44 +11,10 @@ class HomePageUi extends StatefulWidget {
 
 class _HomePageUiState extends State<HomePageUi> {
   final ScrollController _scrollController = ScrollController();
-  String selectedCategory = 'semua';
-
-  List<Color> buttonColors = [
-    Colors.white,
-    Colors.white,
-    Colors.white,
-    Colors.white,
-  ];
-
-  double waktuMemasakValue = 30;
-  double tingkatKesulitanValue = 2;
-
-  final List<Map<String, String>> mealDetails = [
-    {
-      'icon': 'breakfast_dining',
-      'title': 'Sarapan',
-      'description':
-          'Awali hari dengan pilihan sarapan yang lezat dan bergizi. Temukan menu sempurna yang memberikan energi untuk memulai aktivitas dengan semangat.',
-    },
-    {
-      'icon': 'lunch_dining',
-      'title': 'Makan Siang',
-      'description':
-          'Nikmati makan siang yang mengenyangkan dan penuh rasa. Pilihan menu yang cocok untuk istirahat sejenak dan mengisi tenaga di tengah hari.',
-    },
-    {
-      'icon': 'dinner_dining',
-      'title': 'Makan Malam',
-      'description':
-          'Tutup hari dengan makan malam istimewa yang memanjakan lidah. Temukan sajian yang sempurna untuk dinikmati bersama keluarga atau waktu santai.',
-    },
-    {
-      'icon': 'cake',
-      'title': 'Cemilan',
-      'description':
-          'Manjakan diri dengan aneka camilan ringan yang lezat. Pilihan camilan yang pas untuk menemani aktivitas dan waktu bersantai.',
-    },
-  ];
+  String golonganDipilih = 'semua';
+  String kategoriDipilih = 'semua';
+  String tingkatKesulitanDipilih = 'semua';
+  String waktuMemasakDipilih = 'semua';
 
   @override
   void initState() {
@@ -80,35 +46,6 @@ class _HomePageUiState extends State<HomePageUi> {
             height: 30,
           ),
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 200),
-            child: Row(
-              children: [
-                const SizedBox(
-                  width: 250,
-                  height: 35,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Cari resep...',
-                      suffixIcon: Icon(Icons.search),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 30),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.favorite),
-                )
-              ],
-            ),
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
@@ -190,180 +127,20 @@ class _HomePageUiState extends State<HomePageUi> {
             const SizedBox(height: 22),
             Center(
               child: Wrap(
-                spacing: 16.0,
-                runSpacing: 16.0,
-                alignment: WrapAlignment.center,
-                children: List.generate(4, (index) {
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        buttonColors[index] = Colors.lightBlue.shade50;
-                      });
-                    },
-                    child: Container(
-                      width: 300,
-                      height: 380,
-                      decoration: BoxDecoration(
-                        color: buttonColors[index],
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.3),
-                            spreadRadius: 2,
-                            blurRadius: 6,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Icon(
-                              Icons.fastfood,
-                              size: 40,
-                              color: Colors.orange,
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              mealDetails[index]['title']!,
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                            ),
-                            const SizedBox(height: 6),
-                            Text(
-                              mealDetails[index]['description']!,
-                              style: const TextStyle(
-                                fontSize: 15,
-                                color: Colors.black54,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                }),
-              ),
-            ),
-            const SizedBox(height: 50),
-            const Center(
-              child: Text(
-                'Waktu Memasak',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Slider(
-              value: waktuMemasakValue,
-              min: 0,
-              max: 60,
-              divisions: 12,
-              label: waktuMemasakValue == 0
-                  ? '< 5 menit'
-                  : waktuMemasakValue == 5
-                      ? '5 menit'
-                      : waktuMemasakValue == 10
-                          ? '10 menit'
-                          : waktuMemasakValue == 15
-                              ? '15 menit'
-                              : waktuMemasakValue == 20
-                                  ? '20 menit'
-                                  : waktuMemasakValue == 25
-                                      ? '25 menit'
-                                      : waktuMemasakValue == 30
-                                          ? '30 menit'
-                                          : waktuMemasakValue == 35
-                                              ? '35 menit'
-                                              : waktuMemasakValue == 40
-                                                  ? '40 menit'
-                                                  : waktuMemasakValue == 45
-                                                      ? '45 menit'
-                                                      : waktuMemasakValue == 50
-                                                          ? '50 menit'
-                                                          : waktuMemasakValue == 55
-                                                              ? '55 menit'
-                                                              : '> 1 jam',
-              onChanged: (value) {
-                setState(() {
-                  waktuMemasakValue = value;
-                });
-              },
-              activeColor: Colors.orange,
-              inactiveColor: Colors.grey,
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('< 5 menit'),
-                Text('30 menit'),
-                Text('> 1 jam'),
-              ],
-            ),
-            const SizedBox(height: 50),
-            const Center(
-              child: Text(
-                'Tingkat Kesulitan',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const SizedBox(height: 16),
-            Slider(
-              value: tingkatKesulitanValue,
-              min: 1,
-              max: 3,
-              divisions: 2,
-              label: tingkatKesulitanValue == 1
-                  ? 'mudah'
-                  : tingkatKesulitanValue == 2
-                      ? 'sedang'
-                      : 'sulit',
-              onChanged: (value) {
-                setState(() {
-                  tingkatKesulitanValue = value;
-                });
-              },
-              activeColor: Colors.orange,
-              inactiveColor: Colors.grey,
-            ),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('mudah'),
-                Text('sedang'),
-                Text('sulit'),
-              ],
-            ),
-            const SizedBox(height: 50),
-            const Center(
-              child: Text(
-                'Rekomendasi Menu',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-            ),
-            // Tambahkan kode ini di bawah teks "Rekomendasi Menu"
-            const SizedBox(height: 16),
-            Center(
-              child: Wrap(
                 spacing: 15.0,
-                children: ['semua', 'nasi', 'mie', 'lauk', 'cemilan'].map((category) {
+                children: ['semua', 'sarapan', 'makan siang', 'makan malam', 'cemilan'].map((kategori) {
                   return ChoiceChip(
-                    label: Text(category),
+                    label: Text(kategori),
                     labelStyle: TextStyle(
-                      color: selectedCategory == category ? Colors.white : Colors.black,
+                      color: kategoriDipilih == kategori ? Colors.white : Colors.black,
                       fontWeight: FontWeight.bold,
                     ),
-                    selected: selectedCategory == category,
+                    selected: kategoriDipilih == kategori,
                     selectedColor: Colors.orange,
                     backgroundColor: Colors.grey[200],
                     onSelected: (bool selected) {
                       setState(() {
-                        selectedCategory = category;
+                        kategoriDipilih = kategori;
                       });
                     },
                   );
@@ -371,121 +148,217 @@ class _HomePageUiState extends State<HomePageUi> {
               ),
             ),
             const SizedBox(height: 30),
-
+            const Center(
+              child: Text(
+                'Waktu Memasak',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: Wrap(
+                spacing: 15.0,
+                children: ['semua', '< 15 menit', '< 30 menit', '< 1 jam'].map((waktuMemasak) {
+                  return ChoiceChip(
+                    label: Text(waktuMemasak),
+                    labelStyle: TextStyle(
+                      color: waktuMemasakDipilih == waktuMemasak ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    selected: waktuMemasakDipilih == waktuMemasak,
+                    selectedColor: Colors.orange,
+                    backgroundColor: Colors.grey[200],
+                    onSelected: (bool selected) {
+                      setState(() {
+                        waktuMemasakDipilih = waktuMemasak;
+                      });
+                    },
+                  );
+                }).toList(),
+              ),
+            ),
+            const SizedBox(height: 30),
+            const Center(
+              child: Text(
+                'Tingkat Kesulitan',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: Wrap(
+                spacing: 15.0,
+                children: ['semua', 'mudah', 'sedang', 'sulit'].map((tingkatKesulitan) {
+                  return ChoiceChip(
+                    label: Text(tingkatKesulitan),
+                    labelStyle: TextStyle(
+                      color: tingkatKesulitanDipilih == tingkatKesulitan ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    selected: tingkatKesulitanDipilih == tingkatKesulitan,
+                    selectedColor: Colors.orange,
+                    backgroundColor: Colors.grey[200],
+                    onSelected: (bool selected) {
+                      setState(() {
+                        tingkatKesulitanDipilih = tingkatKesulitan;
+                      });
+                    },
+                  );
+                }).toList(),
+              ),
+            ),
+            const SizedBox(height: 30),
+            const Center(
+              child: Text(
+                'Rekomendasi Menu',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(height: 16),
+            Center(
+              child: Wrap(
+                spacing: 15.0,
+                children: ['semua', 'nasi', 'mie', 'lauk', 'cemilan'].map((golongan) {
+                  return ChoiceChip(
+                    label: Text(golongan),
+                    labelStyle: TextStyle(
+                      color: golonganDipilih == golongan ? Colors.white : Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    selected: golonganDipilih == golongan,
+                    selectedColor: Colors.orange,
+                    backgroundColor: Colors.grey[200],
+                    onSelected: (bool selected) {
+                      setState(() {
+                        golonganDipilih = golongan;
+                      });
+                    },
+                  );
+                }).toList(),
+              ),
+            ),
             const SizedBox(height: 50),
             FutureBuilder(
               future: getColl(
-                category: selectedCategory,
-                waktuMemasak: waktuMemasakValue,
+                golongan: golonganDipilih,
+                tingkatKesulitan: tingkatKesulitanDipilih,
+                kategori: kategoriDipilih,
+                waktuMemasak: waktuMemasakDipilih,
               ),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
+                  final List<Map<String, dynamic>> menuItems = snapshot.data!.docs.map((doc) {
+                    final data = doc.data();
+                    final nilaiEigen = calculateNilaiEigen(
+                      data['nilaiGizi'] ?? {},
+                      data['tingkatKesulitanValue']?.toDouble() ?? 0.0,
+                      data['waktuMemasakValue']?.toDouble() ?? 0.0,
+                    );
+                    return {
+                      'id': doc.id,
+                      'namaMenu': data['namaMenu'] ?? 'Tanpa Nama',
+                      'deskripsi': data['deskripsi'] ?? 'Deskripsi tidak tersedia',
+                      'imageUrl': data['imageUrl'] ?? '',
+                      'waktuMemasak': data['waktuMemasak'] ?? '',
+                      'tingkatKesulitan': data['tingkatKesulitan'] ?? '',
+                      'nilaiEigen': nilaiEigen,
+                    };
+                  }).toList();
+
+                  menuItems.sort((a, b) => b['nilaiEigen'].compareTo(a['nilaiEigen']));
+
                   return Column(
-                    children: List.generate(
-                      snapshot.data!.docs.length,
-                      (index) {
-                        final doc = snapshot.data!.docs[index];
-                        final id = doc.id;
-                        final namaMenu = doc.data()['namaMenu'];
-                        final deskripsi = doc.data()['deskripsi'];
-                        final waktu = doc.data()['waktuMemasak'].toString();
-                        final tingkatKesulitan = doc.data()['tingkatKesulitan'] ?? '-';
-                        final imageUrl = doc.data()['imageUrl'];
-                        final nilaiGizi = doc.data()['nilaiGizi'];
-
-                        double giziScore = calculateGiziScore(nilaiGizi);
-
-                        return Card(
-                          margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // Gambar di kiri
-                                if (imageUrl != null && imageUrl.isNotEmpty)
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
-                                    child: Image.network(
-                                      imageUrl,
-                                      height: 350,
-                                      width: 400,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                const SizedBox(width: 16), // Jarak antara gambar dan deskripsi
-                                // Teks deskripsi di kanan
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        namaMenu,
-                                        style: const TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 8),
-                                      Text(
-                                        deskripsi,
-                                        style: const TextStyle(
-                                          fontSize: 16,
-                                          color: Colors.black54,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 8),
-                                      Row(
-                                        children: [
-                                          const Icon(Icons.access_time, color: Colors.orange, size: 20),
-                                          const SizedBox(width: 5),
-                                          Text(waktu),
-                                          const SizedBox(width: 16),
-                                          const Icon(Icons.bar_chart, color: Colors.orange, size: 20),
-                                          const SizedBox(width: 5),
-                                          Text(tingkatKesulitan),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 8),
-                                      Row(
-                                        children: [
-                                          const Icon(Icons.score, color: Colors.orange, size: 20),
-                                          const SizedBox(width: 5),
-                                          Text('Gizi Score: ${giziScore.toStringAsFixed(1)}'),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 8),
-                                      Align(
-                                        alignment: Alignment.centerRight,
-                                        child: TextButton(
-                                          onPressed: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) => DescPage(namaMenu: id),
-                                              ),
-                                            );
-                                          },
-                                          child: const Text(
-                                            'Lihat Detail',
-                                            style: TextStyle(color: Colors.orange),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                    children: menuItems.map((item) {
+                      return Card(
+                        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (item['imageUrl'].isNotEmpty)
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(8),
+                                  child: Image.network(
+                                    item['imageUrl'],
+                                    height: 350,
+                                    width: 400,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                              ],
-                            ),
+                              const SizedBox(width: 16),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      item['namaMenu'],
+                                      style: const TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      item['deskripsi'],
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        color: Colors.black54,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Row(
+                                      children: [
+                                        const Icon(Icons.access_time, color: Colors.orange, size: 20),
+                                        const SizedBox(width: 5),
+                                        Text(
+                                          item['waktuMemasak'],
+                                        ),
+                                        const SizedBox(width: 16),
+                                        const Icon(Icons.bar_chart, color: Colors.orange, size: 20),
+                                        const SizedBox(width: 5),
+                                        Text(
+                                          item['tingkatKesulitan'],
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text('Nilai Eigen: ${item['nilaiEigen'].toStringAsFixed(2)}'),
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: TextButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => DescPage(namaMenu: item['id']),
+                                            ),
+                                          );
+                                        },
+                                        child: const Text(
+                                          'Lihat Detail',
+                                          style: TextStyle(color: Colors.orange),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    }).toList(),
                   );
                 }
-                return const Center(child: CircularProgressIndicator());
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(child: CircularProgressIndicator());
+                }
+
+                return const Center(child: Text('Tidak ada data yang tersedia'));
               },
-            )
+            ),
           ],
         ),
       ),
