@@ -1,6 +1,7 @@
 {
   "projects": {
-    "fix": "fir-sekar"
+    "fix": "fir-sekar",
+    "default": "fir-sekar"
   },
   "targets": {},
   "etags": {},
